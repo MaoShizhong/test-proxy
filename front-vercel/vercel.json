@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:splat",
+      "destination": "https://superawesometestproxyodinwow.onrender.com/:splat"
+    }
+  ]
+}

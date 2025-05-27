@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="login">log in</button>
+    <button id="logout">log out</button>
+    <p id="result"></p>
+
+    <script type="module">
+      const getRes = await fetch(
+        "https://superawesometestproxyodinwow.netlify.app/api/",
+        { credentials: "include" },
+      );
+      const getText = await getRes.json();
+      document.querySelector("#result").textContent = getText;
+
+      document.querySelector("#login").addEventListener("click", async () => {
+        const loginRes = await fetch(
+          "https://superawesometestproxyodinwow.netlify.app/api/session",
+          { method: "POST" },
+        );
+        window.location.reload();
+      });
+
+      document.querySelector("#logout").addEventListener("click", async () => {
+        const logoutRes = await fetch(
+          "https://superawesometestproxyodinwow.netlify.app/api/session",
+          { method: "DELETE" },
+        );
+        window.location.reload();
+      });
+    </script>
+  </body>
+</html>
