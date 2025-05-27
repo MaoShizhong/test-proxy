@@ -11,26 +11,19 @@
     <p id="result"></p>
 
     <script type="module">
-      const getRes = await fetch(
-        "https://superawesometestproxyodinwow.vercel.app/api/",
-        { credentials: "include" },
-      );
+      const url = "https://superawesometestproxyodinwow.vercel.app/api";
+
+      const getRes = await fetch(url);
       const getText = await getRes.json();
       document.querySelector("#result").textContent = getText;
 
       document.querySelector("#login").addEventListener("click", async () => {
-        const loginRes = await fetch(
-          "https://superawesometestproxyodinwow.vercel.app/api/session",
-          { method: "POST" },
-        );
+        const loginRes = await fetch(`${url}/sessions`, { method: "POST" });
         window.location.reload();
       });
 
       document.querySelector("#logout").addEventListener("click", async () => {
-        const logoutRes = await fetch(
-          "https://superawesometestproxyodinwow.vercel.app/api/session",
-          { method: "DELETE" },
-        );
+        const logoutRes = await fetch(`${url}/sessions`, { method: "DELETE" });
         window.location.reload();
       });
     </script>

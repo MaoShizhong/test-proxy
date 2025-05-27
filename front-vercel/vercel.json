@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/:splat",
-      "destination": "https://superawesometestproxyodinwow.onrender.com/:splat"
+      "source": "/api/:splat*",
+      "destination": "https://test-proxy-z9jv.onrender.com/:splat*"
     }
   ]
 }
