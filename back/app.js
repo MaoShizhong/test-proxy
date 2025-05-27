@@ -3,7 +3,7 @@
 const app = require("express")();
 const session = require("express-session");
 
-// app.set("trust proxy", 1);
+app.set("trust proxy", 1);
 app.use(
   session({
     resave: false,
